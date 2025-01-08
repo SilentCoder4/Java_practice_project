@@ -1,12 +1,7 @@
 // Java program for simple calculator
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.lang.*;
-import java.lang.Math;
-import java.util.Scanner;
+import java.awt.event.*;
 
 
 class calculator extends JFrame implements ActionListener {
@@ -31,7 +26,9 @@ class calculator extends JFrame implements ActionListener {
          }
          calculator c = new calculator();   //creating object of class
 
-         l.setEnabled(false);   //set textfield to non-editable
+         l = new JTextField(16);
+
+         l.setEditable(false);   //set textfield to non-editable
 
          JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1;     //create numbers and operators
 
@@ -120,8 +117,73 @@ class calculator extends JFrame implements ActionListener {
             else
                 s0 = s0 + s;
 
+            l.setText(s0 + s1 + s2);
 
-            l
+        }
+
+        else if (s.charAt(0) == 'C') {
+
+            s0 = s1 = s2 = "";      // clear the one letter
+
+            l.setText(s0 + s1 + s2);        // set the value of text
+
+        }
+        else if (s.charAt(0) == '=') {
+
+            double te;
+
+            if (s1.equals("+"))     // store the value in 1st
+                te = (Double.parseDouble(s0) + Double.parseDouble(s2));
+
+            else if (s1.equals("-"))
+                te = (Double.parseDouble(s0) - Double.parseDouble(s2));
+
+            else if (s1.equals("/"))
+                te = (Double.parseDouble(s0) / Double.parseDouble(s2));
+
+            else
+                te = (Double.parseDouble(s0) * Double.parseDouble(s2));
+
+            l.setText(s0 + s1 + s2 + "=" + te);     // set the value of text
+
+            s0 = Double.toString(te);        // convert it to string
+
+            s1 = s2 = "";
+
+        }
+
+        else {
+
+            if (s1.equals("") || s2.equals(""))     // if there was no operand
+                s1 = s;
+
+            else {      // else evaluate
+
+                double te;
+
+                if (s1.equals("+"))     // store the value in 1st
+                    te = (Double.parseDouble(s0) + Double.parseDouble(s2));
+
+                else if (s1.equals("-"))
+                    te = (Double.parseDouble(s0) - Double.parseDouble(s2));
+
+                else if (s1.equals("/"))
+                    te = (Double.parseDouble(s0) / Double.parseDouble(s2));
+
+                else
+                    te = (Double.parseDouble(s0) * Double.parseDouble(s2));
+
+                s0 = Double.toString(te);       // convert it to string
+
+                s1 = s;     // place the operator
+
+                s2 = "";    // make the operand blank
+
+            }
+
+            l.setText(s0 + s1 + s2);    // set the value of text
+
+        }
 
     }
 }
