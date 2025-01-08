@@ -1,5 +1,6 @@
 // Java program for simple calculator
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -59,7 +60,6 @@ class calculator extends JFrame implements ActionListener {
          JPanel p = new JPanel();   //create a panel
 
          //add action listeners
-
          bm.addActionListener(c);
          bd.addActionListener(c);
          bs.addActionListener(c);
@@ -78,11 +78,38 @@ class calculator extends JFrame implements ActionListener {
          beq.addActionListener(c);
          beq1.addActionListener(c);
 
+         //add elements t panel
+         p.add(l);
+         p.add(ba);
+         p.add(b1);
+         p.add(b2);
+         p.add(b3);
+         p.add(bs);
+         p.add(b4);
+         p.add(b5);
+         p.add(b6);
+         p.add(bm);
+         p.add(b7);
+         p.add(b8);
+         p.add(b9);
+         p.add(bd);
+         p.add(be);
+         p.add(b0);
+         p.add(beq);
+         p.add(beq1);
+
+         p.setBackground(Color.black);      //set background of panel
+
+         f.add(p);      //add panel to frame
+
+         f.setSize(200, 250);   //set frame size
+
+         f.show();
 
      }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println();
+
     }
 }
