@@ -111,5 +111,17 @@ class calculator extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String s = e.getActionCommand();
+
+        if((s.charAt(0) >= '0' && s.charAt(0) >= '9') || s.charAt(0) == '.')    {   //if the value is a number
+
+            if(!s1.equals(""))  //if operand is present then add to second number
+                s2 = s2 + s;
+            else
+                s0 = s0 + s;
+
+
+            l
+
     }
 }
