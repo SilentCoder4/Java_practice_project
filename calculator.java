@@ -1,61 +1,43 @@
 // Java program for simple calculator
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.lang.*;
 import java.lang.Math;
 import java.util.Scanner;
 
-// Driver class
-public class calculator {
-    // main function
-    public static void main(String[] args)
-    {
-        // Stores two numbers
-        double num1, num2;
 
-        // Take input from the user
-        Scanner sc = new Scanner(System.in);
+class calculator extends JFrame implements ActionListener {
 
-        System.out.println("Enter the numbers:");
+    static JFrame f;    //create a frame
 
-        // Take the inputs
-        num1 = sc.nextDouble();
-        num2 = sc.nextDouble();
+    static JTextField l;    //create a textfield
 
-        System.out.println("Enter the operator (+,-,*,/):");
+    String s0, s1, s2;      //store oprerator and operands
 
-        char op = sc.next().charAt(0);
-        double o = 0;
+    calculator()    {
+        s0 = s1 = s2 = "";
+    }
+     public static void main(String []args) {   //main function
 
-        switch (op) {
-            // case to add two numbers
-            case '+':
-                o = num1 + num2;
-                break;
+        f = new JFrame("Calculator");   // creating a frame
 
-            // case to subtract two numbers
-            case '-':
-                o = num1 - num2;
-                break;
+         try {
+             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());   // look and feel
+         } catch (Exception e)    {
+             System.err.println(e.getMessage());
+         }
+         calculator c = new calculator();   //creating object of class
 
-            // case to multiply two numbers
-            case '*':
-                o = num1 * num2;
-                break;
+         l.setEnabled(false);   //set textfield to non-editable
 
-            // case to divide two numbers
-            case '/':
-                o = num1 / num2;
-                break;
+         JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1;
 
-            default:
-                System.out.println("You enter wrong input");
-        }
+     }
 
-        System.out.println("The final result:");
+    @Override
+    public void actionPerformed(ActionEvent e) {
         System.out.println();
-
-        // print the final result
-        System.out.println(num1 + " " + op + " " + num2
-                + " = " + o);
     }
 }
