@@ -9,21 +9,21 @@ public class CheckPrime {
 
         System.out.print("Enter a number to check is it prime or not : ");
         num = sc.nextInt();
-        float div = (float) (num/2);
+        int div = num/2;
 
         if( num == 0||num == 1){
-            System.out.println("It is prime number");
+            System.out.println(num + " is not prime number");
         }
         else {
-            for (int i = 1;i < div;i++){
+            for (int i = 2;i < div;i++){
                 if(num%i == 0){
-                    System.out.println("It is not a prime number");
+                    System.out.println(num + " is not a prime number");
                     flag = true;
                     break;
                 }
             }
-            if(flag == false){
-                System.out.println("it is prime number");
+            if(!flag){
+                System.out.println(num + " is prime number");
             }
         }
     }
