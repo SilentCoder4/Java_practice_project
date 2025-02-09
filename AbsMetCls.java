@@ -17,10 +17,10 @@ class Circle extends Shape {
         return Math.PI * radius * radius;
     }
 }
-class Rectangle extends Shape {
+class rectangle extends Shape {
     private double length, width;
 
-    Rectangle(double length, double width) {
+    rectangle(double length, double width) {
         this.length = length;
         this.width = width;
     }
@@ -30,10 +30,10 @@ class Rectangle extends Shape {
         return length * width;
     }
 }
-public class AbsMetCls {
+public class AbsMetCls{
     public static void main(String[] args) {
         Shape circle = new Circle(5);
-        Shape rectangle = new Rectangle(4, 6);
+        Shape rectangle = new rectangle(4, 6);
 
         System.out.println("Circle Area: " + circle.calculateArea());
         System.out.println("Rectangle Area: " + rectangle.calculateArea());
