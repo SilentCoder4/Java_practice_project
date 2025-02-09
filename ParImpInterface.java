@@ -15,7 +15,6 @@ class Cat implements Animal {
     }
 }
 
-
 public class ParImpInterface {
     public static void main(String[] args) {
         Animal myDog = new Dog();
